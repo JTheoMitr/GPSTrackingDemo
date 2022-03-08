@@ -3,6 +3,7 @@ package android.example.gpstrackingdemo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -53,5 +54,20 @@ public class MainActivity extends AppCompatActivity {
         locationRequest.setFastestInterval(1000 * FAST_UPDATE_INTERVAL);
 
         locationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+
+        sw_gps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (sw_gps.isChecked()) {
+                    // most accurate - use GPS
+                    locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+                    tv_sensor.setText(R.string.using_gps);
+                }
+                else {
+                    locationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+                    tv_sensor.setText(R.string.using_tower_wifi);
+                }
+            }
+        });
     }
 }
