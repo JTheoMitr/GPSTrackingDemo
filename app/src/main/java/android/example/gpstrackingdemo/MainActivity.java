@@ -6,11 +6,23 @@ import android.os.Bundle;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationRequest;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView tv_lat, tv_lon, tv_altitude, tv_accuracy, tv_speed, tv_sensor, tv_updates, tv_address;
 
     Switch sw_locationupdates, sw_gps;
+
+    //var to remember if we ware tracking location or not
+    boolean updateOn = false;
+
+    // Location Request is a config file
+    LocationRequest locationRequest;
+
+    //Google's API for location services.
+    FusedLocationProviderClient fusedLocationProviderClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
