@@ -2,4 +2,5 @@
     <string name="app_name">GPSTrackingDemo</string>
     <string name="using_gps">Using GPS Sensors</string>
     <string name="using_tower_wifi">Using Tower and Wifi</string>
+    <string name="na">Not Available</string>
 </resources>
